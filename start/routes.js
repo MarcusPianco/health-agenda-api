@@ -16,6 +16,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.post('/register', 'AuthCOntroller.register')
-Route.post('/auth', 'AuthCOntroller.authenticate')
-// Route.get('/app', 'AppCOntroller.app').middleware(['auth'])
+Route.post('/register', 'AuthController.register')
+Route.post('/auth', 'AuthController.authenticate')
+
+Route.resource('patients', 'PatientController').apiOnly()
