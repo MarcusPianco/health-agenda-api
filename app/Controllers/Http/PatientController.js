@@ -36,9 +36,9 @@ class PatientController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async store ({ request }) {
-    const data = request.only(['content'])
-    const patient = await Patient.create({ ...data })
+  async store ({ request, auth }) {
+    const data = request.only(['name', 'lastName', 'birthDate', 'kindUser'])
+    const patient = await Patient.create({ user_id: auth.user.id, ...data })
 
     return patient
   }

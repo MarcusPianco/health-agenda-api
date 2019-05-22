@@ -19,4 +19,6 @@ const Route = use('Route')
 Route.post('/register', 'AuthController.register')
 Route.post('/auth', 'AuthController.authenticate')
 
-Route.resource('patients', 'PatientController').apiOnly()
+Route.resource('patients', 'PatientController')
+  .apiOnly()
+  .middleware('auth')
